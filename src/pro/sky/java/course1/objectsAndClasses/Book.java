@@ -1,3 +1,5 @@
+package pro.sky.java.course1.objectsAndClasses;
+
 public class Book {
     String bookName;
     String Author;

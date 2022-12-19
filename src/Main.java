@@ -1,5 +1,13 @@
 public class Main {
+
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Book warAndPeace = new Book();
+
+        warAndPeace.authorName = "Л.Н. Толстой";
+        System.out.println("Автор " + warAndPeace.authorName);
+        warAndPeace.bookName = "Война и мир";
+        System.out.println("Название " + warAndPeace.bookName);
     }
 }

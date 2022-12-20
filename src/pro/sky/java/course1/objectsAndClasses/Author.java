@@ -1,26 +1,21 @@
 package pro.sky.java.course1.objectsAndClasses;
 
 public class Author {
-    String authorFirstName;
-    String authorLastName;
+    private final String authorFirstName;
+    private final String authorLastName;
 
-    public Author createAuthorName(String firstName, String lastName) {
+    public Author (String firstName, String lastName) {
         this.authorFirstName = firstName;
         this.authorLastName = lastName;
-
     }
-
-    public static class Homework {
-        public static void main (String[] args) {
-            task1();
-            task2();
-        }
-        public static void task1(){
-
-        }
-        public static void task2() {
-
-        }
+    public String getAuthorFirstName() {
+        return authorFirstName;
+    }
+    public String getAuthorLastName(){
+        return authorLastName;
+    }
+    public String combineAuthorFullNameAndReturn() {
+        String fullName = authorFirstName + " " + authorLastName;
+        return fullName;
     }
 }
-

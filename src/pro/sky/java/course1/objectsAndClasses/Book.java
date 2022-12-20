@@ -1,14 +1,31 @@
 package pro.sky.java.course1.objectsAndClasses;
 
 public class Book {
-    String bookName;
-    String Author;
-    int publishingYear;
+   private final String bookName;
+    private final Author author;
+    private int publishingYear;
 
-    public Book createBook(String bookName, int publishingYear, String Author) {
+    public Book (String bookName, Author author,  int publishingYear) {
         this.bookName = bookName;
-        this.Author = Author;
+        this.author = author;
         this.publishingYear = publishingYear;
 
     }
+    public String getBookName() {
+        return bookName;
+    }
+    public Author getAuthor () {
+        return author;
+    }
+    public int getPublishingYear() {
+        return publishingYear;
+    }
+    public void setPublishingYear(){
+        if (publishingYear < 1950 || publishingYear > 2022) {
+            System.out.println("Invalid publishing year:" + publishingYear);
+            return;
+        }
+        this.publishingYear = publishingYear;
+    }
+
 }

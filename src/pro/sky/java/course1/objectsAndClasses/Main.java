@@ -5,6 +5,11 @@ import pro.sky.java.course1.objectsAndClasses.Book;
 
 public class Main {
 
+    public static void printBookInfo(Book book, Author author) {
+        //Не понимаю как взять данные об авторе из book, чтобы сложить имя и фамилию автора и вывести на печать.
+        //Пришлось сделать костыльно и запросить информацию напрямую у author
+        System.out.println( "Книга " + book.getBookName() + " автор " + author.combineAuthorFullNameAndReturn() + " опубликованная в " + book.getPublishingYear());
+    }
     public static void main(String[] args) {
         //Напишите небольшой библиотечный справочник, где хранится информация о книгах.
         //
@@ -21,15 +26,11 @@ public class Main {
         //Создайте отдельный класс для запуска приложения и объявите метод main в нем.
         //В том же методе main измените год публикации одной из книг с помощью сеттера.
 
-        Author author1 = new Author ("Лев", "Толстой");
+        Author levTolstoy = new Author ("Лев", "Толстой");
+        Book warAndPeace = new Book("Война и мир", levTolstoy, 1992);
+        printBookInfo(warAndPeace,levTolstoy);
 
-        Book warAndPiece =;
+        warAndPeace.setPublishingYear();
+
     }
-    Person sarah = new Person("Sarah", 30);
-        System.out.println("sarah.name = " + sarah.name);
-        System.out.println("sarah.age = " + sarah.age);
-
-    Person john = new Person("John", 13);
-        System.out.println("john.name = " + john.name);
-        System.out.println("john.age = " + john.age);
 }

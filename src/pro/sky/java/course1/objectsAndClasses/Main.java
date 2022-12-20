@@ -1,13 +1,12 @@
 package pro.sky.java.course1.objectsAndClasses;
 
-import pro.sky.java.course1.objectsAndClasses.Author;
-import pro.sky.java.course1.objectsAndClasses.Book;
-
 public class Main {
 
     public static void printBookInfo(Book book, Author author) {
-        //Не понимаю как взять данные об авторе из book, чтобы сложить имя и фамилию автора и вывести на печать.
-        //Пришлось сделать костыльно и запросить информацию напрямую у author
+        /**Не понимаю как взять данные об авторе из book, чтобы сложить имя и фамилию автора и вывести на печать.
+        * Пришлось сделать костыльно и запросить информацию напрямую у author
+        * Но из-за этого костыля нет проверки на соответствие автора и книги
+         */
         System.out.println( "Книга " + book.getBookName() + " автор " + author.combineAuthorFullNameAndReturn() + " опубликованная в " + book.getPublishingYear());
     }
     public static void main(String[] args) {
@@ -30,7 +29,12 @@ public class Main {
         Book warAndPeace = new Book("Война и мир", levTolstoy, 1992);
         printBookInfo(warAndPeace,levTolstoy);
 
-        warAndPeace.setPublishingYear();
+        warAndPeace.setPublishingYear(2020);
+        //попробовать перенести этот метод в book, но подозреваю что не получится
+        printBookInfo(warAndPeace,levTolstoy);
 
+        Author avinashDixit = new Author("Авинаш", "Диксит");
+        Book theArtOfStrategy = new Book("Теория игр", avinashDixit, 2018);
+        printBookInfo(theArtOfStrategy,avinashDixit);
     }
 }

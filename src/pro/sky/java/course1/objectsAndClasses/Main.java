@@ -2,13 +2,6 @@ package pro.sky.java.course1.objectsAndClasses;
 
 public class Main {
 
-    public static void printBookInfo(Book book, Author author) {
-        /**Не понимаю как взять данные об авторе из book, чтобы сложить имя и фамилию автора и вывести на печать.
-        * Пришлось сделать костыльно и запросить информацию напрямую у author
-        * Но из-за этого костыля нет проверки на соответствие автора и книги
-         */
-        System.out.println( "Книга " + book.getBookName() + " автор " + author.combineAuthorFullNameAndReturn() + " опубликованная в " + book.getPublishingYear());
-    }
     public static void main(String[] args) {
         //Напишите небольшой библиотечный справочник, где хранится информация о книгах.
         //
@@ -25,16 +18,15 @@ public class Main {
         //Создайте отдельный класс для запуска приложения и объявите метод main в нем.
         //В том же методе main измените год публикации одной из книг с помощью сеттера.
 
-        Author levTolstoy = new Author ("Лев", "Толстой");
-        Book warAndPeace = new Book("Война и мир", levTolstoy, 1992);
-        printBookInfo(warAndPeace,levTolstoy);
+        Author aleksandrAuzan = new Author ("Александр", "Аузан");
+        Book economicsOfEverything = new Book("Экономика всего", aleksandrAuzan, 1992);
+        System.out.println(economicsOfEverything.getBookInfo());
 
-        warAndPeace.setPublishingYear(2020);
-        //попробовать перенести этот метод в book, но подозреваю что не получится
-        printBookInfo(warAndPeace,levTolstoy);
+        economicsOfEverything.setPublishingYear(2020);
+        System.out.println(economicsOfEverything.getBookInfo());
 
         Author avinashDixit = new Author("Авинаш", "Диксит");
         Book theArtOfStrategy = new Book("Теория игр", avinashDixit, 2018);
-        printBookInfo(theArtOfStrategy,avinashDixit);
+        System.out.println(theArtOfStrategy.getBookInfo());
     }
 }

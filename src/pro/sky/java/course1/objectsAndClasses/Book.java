@@ -20,12 +20,16 @@ public class Book {
     public int getPublishingYear() {
         return publishingYear;
     }
-    public void setPublishingYear( int publishingYear){
+    public void setPublishingYear( int p){
         if (publishingYear < 1950 || publishingYear > 2022) {
             System.out.println("Invalid publishing year:" + publishingYear);
             return;
         }
         this.publishingYear = publishingYear;
+
+    }
+    public String getBookInfo() {
+        return "Книга " + getBookName() + " автор " + author.combineAuthorFIO() + " опубликованная в " + getPublishingYear();
     }
 
 }

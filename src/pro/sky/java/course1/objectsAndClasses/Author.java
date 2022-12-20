@@ -14,8 +14,7 @@ public class Author {
     public String getAuthorLastName(){
         return authorLastName;
     }
-    public String combineAuthorFullNameAndReturn() {
-        String fullName = authorFirstName + " " + authorLastName;
-        return fullName;
+    public String combineAuthorFIO() {
+        return authorFirstName + " " + authorLastName;
     }
 }

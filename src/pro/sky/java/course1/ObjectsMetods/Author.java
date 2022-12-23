@@ -1,4 +1,4 @@
-package pro.sky.java.course1.objectsAndClasses;
+package pro.sky.java.course1.ObjectsMetods;
 
 public class Author {
     private final String authorFirstName;

@@ -1,4 +1,4 @@
-package pro.sky.java.course1.objectsAndClasses;
+package pro.sky.java.course1.ObjectsMetods;
 
 public class Main {
 
@@ -18,7 +18,7 @@ public class Main {
         //Создайте отдельный класс для запуска приложения и объявите метод main в нем.
         //В том же методе main измените год публикации одной из книг с помощью сеттера.
 
-        Author aleksandrAuzan = new Author ("Александр", "Аузан");
+        Author aleksandrAuzan = new Author("Александр", "Аузан");
         Book economicsOfEverything = new Book("Экономика всего", aleksandrAuzan, 1992);
         System.out.println(economicsOfEverything.getBookInfo());
 

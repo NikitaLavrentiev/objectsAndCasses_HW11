@@ -20,13 +20,27 @@ public class Main {
 
         Author aleksandrAuzan = new Author("Александр", "Аузан");
         Book economicsOfEverything = new Book("Экономика всего", aleksandrAuzan, 1992);
-        System.out.println(economicsOfEverything.getBookInfo());
+        System.out.println(economicsOfEverything.toString());
 
         economicsOfEverything.setPublishingYear(2020);
-        System.out.println(economicsOfEverything.getBookInfo());
+        System.out.println(economicsOfEverything.toString());
 
         Author avinashDixit = new Author("Авинаш", "Диксит");
         Book theArtOfStrategy = new Book("Теория игр", avinashDixit, 2018);
-        System.out.println(theArtOfStrategy.getBookInfo());
+        System.out.println(theArtOfStrategy.toString());
+
+        Author isaacAsimov = new Author("Айзек", "Азимов");
+        Book nightfall = new Book("Приход ночи", isaacAsimov, 2013);
+        Book nightFall = new Book("Приход ночи", isaacAsimov, 1960);
+
+        Author issacASimov = new Author("Айзек", "Азимов");
+        Book robbie = new Book("Рубби", isaacAsimov, 1958);
+
+
+        System.out.println(isaacAsimov.equals(issacASimov));
+        System.out.println(nightfall.equals(nightFall));
+
+
+
     }
 }

@@ -1,4 +1,4 @@
-package pro.sky.java.course2.OOP;
+package pro.sky.java.course2.Lesson1_ObjectsOOP;
 
 public class Car {
     //Создайте новый проект в IDEA. Создайте класс «Автомобиль», у которого есть:
@@ -17,35 +17,35 @@ public class Car {
     private String country;
 
     public Car(String brand, String model, int year, String country, String color, double engineVolume) {
-        if (brand.equals(null) || brand.equals("")) { // 2. но тоже не сработало, только теперь система крашится если ноль
+        if (brand.isBlank()) {
             this.brand = "default";
         } else {
             this.brand = brand;
         }
-        if (model != null || model != "") { // 1. сделал проверку сначала так чтобы когда null или пустота присваивалось значение default, но не сработало, потом попробовал методом выше
-            this.model = model;
-        } else {
+        if (model.isBlank()) { // 1. Как сделать автозамену на этапе создания обьекта? сделал проверку сначала так, чтобы когда null или пустота присваивалось значение default, но не сработало, потом попробовал через equals как строки сравнил, но как и ожидалось не работает.
             this.model = "default";
+        } else {
+            this.model = model;
         }
         if (engineVolume >= 1.5) {
             this.engineVolume = engineVolume;
         } else {
             this.engineVolume = 1.5;
         }
-        if (color != null || color != "") {
-            this.color = color;
-        } else {
+        if (color.isBlank()) {
             this.color = "белый";
+        } else {
+            this.color = color;
         }
         if (engineVolume >= 0) {
             this.year = year;
         } else {
             this.year = 2000;
         }
-        if (country != null || country != "") {
-            this.country = country;
-        } else {
+        if (country.isBlank()) {
             this.country = "default";
+        } else {
+            this.country = country;
         }
     }
 
@@ -54,7 +54,7 @@ public class Car {
      Если передана пустая строка или null, то цвет кузова по умолчанию — белый.
      Если год производства ≤0, то значение по умолчанию — 2000.*/
 
-    public Car(String model, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона
+/*    public Car(String model, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона, не понимаю почему
         this.brand = "default";
         this.model = model;
         this.year = year;
@@ -63,25 +63,24 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public Car(String brand, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона, не удивительно ведь model тут в параметре на приём нет. можно ли сделать так, чтобы он по if/else проходился из первого конструктора и model устанавливался default как в первом конструкторе
+    public Car(String brand, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона, не удивительно ведь model тут в параметре на приём нет. Можно ли сделать так, чтобы он по if/else проходился из первого конструктора и model устанавливался default?
         this(brand, model, year, country, color, engineVolume);
-    }
-       this(brand,model,year,country,color,engineVolume);
-}
+    }*/
+
 
     public String getBrand() {
-        if (brand != null || brand != "") {
-            return brand;
-        } else {
+        if (brand.isBlank()) {
             return brand = "default";
+        } else {
+            return brand;
         }
     }
 
     public String getModel() {
-        if (model != null) {
-            return model;
-        } else {
+        if (model.isBlank()) {
             return model = "default";
+        } else {
+            return model;
         }
     }
 
@@ -94,7 +93,7 @@ public class Car {
     }
 
     public String getColor() {
-        if (color == null || color == "") {
+        if (color.isBlank()) {
             return color = "белый";
         } else {
             return color;
@@ -110,10 +109,10 @@ public class Car {
     }
 
     public String getCountry() {
-        if (country != null || country != "") {
-            return country;
+        if (country.isBlank()) {
+            return brand = "default";
         } else {
-            return "default";
+            return brand;
         }
     }
 

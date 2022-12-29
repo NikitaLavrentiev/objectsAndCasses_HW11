@@ -1,4 +1,4 @@
-package pro.sky.java.course2.OOP;
+package pro.sky.java.course2.Lesson1_ObjectsOOP;
 
 public class Main {
 

@@ -54,17 +54,22 @@ public class Car {
      Если передана пустая строка или null, то цвет кузова по умолчанию — белый.
      Если год производства ≤0, то значение по умолчанию — 2000.*/
 
-    public Car(String model, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона, не понимаю почему
+    public Car(String brand, int year, String country, String color, double engineVolume) {
+        this(brand, "default", year, country, color, engineVolume);
+    }
+    public Car(String brand, String model, String country, int year, double engineVolume) {
+        this(brand, model, year, country, "белый", engineVolume);
+    }
+    public Car(String brand, String model, String color, double engineVolume,  int year) { //сокращённая запись
+        this(brand, model, year, "default", color, engineVolume);
+    }
+    public Car(String model, String country, int year, String color, double engineVolume) { //полная
         this.brand = "default";
         this.model = model;
         this.year = year;
         this.country = country;
         this.color = color;
         this.engineVolume = engineVolume;
-    }
-
-    public Car(String brand, int year, String country, String color, double engineVolume) { //выдаёт ошибку при создании такого шаблона, не удивительно ведь model тут в параметре на приём нет. Можно ли сделать так, чтобы он по if/else проходился из первого конструктора и model устанавливался default?
-        this(brand, "default", year, country, color, engineVolume);
     }
 
 

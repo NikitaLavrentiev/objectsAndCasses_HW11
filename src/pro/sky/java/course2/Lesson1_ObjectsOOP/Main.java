@@ -16,11 +16,12 @@ public class Main {
         Car bMW = new Car("BMW", "Z8", 2021, "Германия", "чёрный", 3.0);
         Car kia = new Car("Kia", "Sportage 4-го поколения", 2018, "Южная корея", "красный", 2.4);
         Car hyundaiAvante = new Car("Hyundai", "Avante", 2016, "Южная корея", "орнжевый", 1.6);
-        Car empty = new Car(null,null,0,null,null,0);
+        Car empty = new Car("","",-1000,"","",0);
 
         System.out.println(ladaGranta.toString());
         System.out.println(empty);
         System.out.println(empty.getBrand());
+
 
     }
 }

@@ -1,13 +1,15 @@
 package pro.sky.java.course2.Lesson2_encapsulationOOP.transport;
 
+import java.time.LocalDate;
 public class Car {
+
     /*Создайте пакет transport и перенесите туда класс Car.
- Добавьте следующие свойства класса:
- «Коробка передач»,
- «Тип кузова»,
- «Регистрационный номер»,
- «Количество мест»,
- признак «Летняя» или «Зимняя резина».*/
+     Добавьте следующие свойства класса:
+     «Коробка передач»,
+     «Тип кузова»,
+     «Регистрационный номер»,
+     «Количество мест»,
+     признак «Летняя» или «Зимняя резина».*/
     private String transmission;
     private int registrationNumber;
     private static int countOfCars;
@@ -83,30 +85,6 @@ public class Car {
         this.isSummerTyres = isSummerTyres;
         countOfCars++;
     }
-    // в конструкторах ниже нет счётчика машин, потенциально удалить их
-/*    public Car(String brand, int year, String country, String color, double engineVolume,String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres) {
-        this(brand, DEFAULT_VALUE, year, country, color, engineVolume, transmission, bodyType, registrationNumber, numberOfSeats, isSummerTyres,);
-    }
-    public Car(String brand, String model, String country, int year, double engineVolume,String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres) {
-        this(brand, model, year, country, DEFAULT_COLOUR, engineVolume,transmission, bodyType, registrationNumber, numberOfSeats, isSummerTyres);
-    }
-    public Car(String brand, String model, String color, double engineVolume,  int year,String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres) {
-        this(brand, model, year, DEFAULT_VALUE, color, engineVolume,transmission, bodyType, registrationNumber, numberOfSeats, isSummerTyres);
-    }*/
-
-   /* в этом конструкторе счётчик есть, нет новых полей String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres
-   потенциально удалить
-
-   public Car(String model, String country, int year, String color, double engineVolume) {
-        this.brand = DEFAULT_VALUE;
-        this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        this.engineVolume = engineVolume;
-        this.isSummerTyres = isSummerTyres;
-        countOfCars++;
-    }*/
 
     public String getBrand() {
             return brand;
@@ -131,7 +109,60 @@ public class Car {
     public String getCountry() {
             return country;
     }
+// для сеттеров ниже отредактировать параметры
+public String getTransmission() {
+    return transmission;
+}
 
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
+    public int getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(int registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public static int getCountOfCars() {
+        return countOfCars;
+    }
+
+    public static void setCountOfCars(int countOfCars) {
+        Car.countOfCars = countOfCars;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public boolean isSummerTyres() {
+        return isSummerTyres;
+    }
+
+    public void setSummerTyres(boolean summerTyres) {
+        isSummerTyres = summerTyres;
+    }
+
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public int getMonth() {
+        return LocalDate.now().getMonthValue();
+    }
+    public void changeTiresForSeason() {
+        isSummerTyres = getMonth() >= 3 || getMonth() < 12;
+    }
     @Override
     public String toString() {
         return getBrand() + " " + getModel() + ", " + getYear() + " год выпуска, сборка в " + getCountry() + ", цвет " + getColor() + ", объём двигателя " + getEngineVolume() + " л.";

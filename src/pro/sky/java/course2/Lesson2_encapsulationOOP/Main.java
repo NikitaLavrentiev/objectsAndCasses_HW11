@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println(ladaGranta.toString());
 
-        
+
         System.out.println(empty);
         System.out.println(empty.getBrand());
 

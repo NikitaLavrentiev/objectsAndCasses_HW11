@@ -14,7 +14,6 @@ public class Car {
      признак «Летняя» или «Зимняя резина».*/
     private String transmission;
     private int registrationNumber;
-    private static int countOfCars;
     private final int numberOfSeats;
     private final String bodyType;
     private final String brand;
@@ -24,25 +23,15 @@ public class Car {
     private final int year;
     private String color;
     private final String country;
+    private Key key;
+    private static int countOfCars;
     private static final String DEFAULT_VALUE = "default";
     private static final Integer DEFAULT_VALUE_OF_SEATS = 4;
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
     private static final String DEFAULT_COLOUR = "white";
-    private Key key;
+    private static final String DEFAULT_TRANSMISSION = "auto";
 
-    public Key getKye() {
-        return key;
-    }
-
-    public void setKey(Key key) {
-        if (key == null) {
-            this.key = new Key();
-        } else {
-            this.key = key;
-        }
-    }
-
-    public Car(String brand, String model, int year, String country, String color, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres) {
+    public Car(String brand, String model, int year, String country, String color, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres, Key key) {
         if (brand.isBlank() || brand == null) {
             this.brand = DEFAULT_VALUE;
         } else {
@@ -63,7 +52,7 @@ public class Car {
         } else {
             this.color = color;
         }
-        if (engineVolume >= 0) {
+        if (year >= 0) {
             this.year = year;
         } else {
             this.year = 2000;
@@ -74,7 +63,7 @@ public class Car {
             this.country = country;
         }
         if (transmission.isBlank() || transmission == null) {
-            this.transmission = "auto";
+            this.transmission = DEFAULT_TRANSMISSION;
         } else {
             this.transmission = transmission;
         }
@@ -88,10 +77,10 @@ public class Car {
         } else {
             this.bodyType = DEFAULT_VALUE;
         }
-        if (registrationNumber >= 0) {
-            this.registrationNumber = registrationNumber;
-        } else {
+        if (registrationNumber <= 0) {
             this.registrationNumber = countOfCars;
+        } else {
+            this.registrationNumber = registrationNumber;
         }
         if (numberOfSeats <= 0) {
             this.numberOfSeats = DEFAULT_VALUE_OF_SEATS;
@@ -103,9 +92,21 @@ public class Car {
         countOfCars++;
     }
 
+    public Car(String brand, String model, double engineVolume, int year) {
+        this(brand, model, year,"","", engineVolume, "",  "", 0, 0, false, new Key());
+        countOfCars++;
+    }
 
-    public Car(String brand, int year, String country, String transmission, boolean isSummerTyres) {
-        this(brand, null, year, country, null, 0, transmission, null, 0, 0, true);
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        if (key == null) {
+            this.key = new Key();
+        } else {
+            this.key = key;
+        }
     }
 
     public String getBrand() {
@@ -138,7 +139,7 @@ public class Car {
 
     public void setTransmission(String transmission) {
         if (transmission.isBlank() || transmission == null) {
-            this.transmission = "auto";
+            this.transmission = DEFAULT_TRANSMISSION;
         } else {
             this.transmission = transmission;
         }
@@ -198,19 +199,18 @@ public class Car {
 
     @Override
     public String toString() {
-        return getBrand() + " " + getModel() + ", " + getYear() + " год выпуска, сборка в " + getCountry() + ", цвет " + getColor() + ", объём двигателя " + getEngineVolume() + " л.";
+        return '\n' + brand + " " + model + ", production year " +year+", made in " + country + ", colour is " + color + ", engine volume " + engineVolume + " l."
+                + "\nnumbers of seats is " + numberOfSeats + ", body type " + bodyType + ", registration number " + registrationNumber + ", " + "\ntransmission "
+                + transmission + ", with " + isSummerTyres;
     }
 
-    public class Key {
-        /*В классе Car создайте вложенный класс «Ключ» (Key) с параметрами:
-«Удаленный запуск двигателя»,
-«Бесключевой доступ».*/
+    public static class Key {
         private final boolean REMOTE_ENGINE_START;
         private final boolean KEYLESS_ACCESS;
 
-        public Key(boolean doesItHaveRemoteEngine, boolean doesItHaveKeylessAccess) {
-            this.REMOTE_ENGINE_START = doesItHaveRemoteEngine;
-            this.KEYLESS_ACCESS = doesItHaveKeylessAccess;
+        public Key(boolean remoteEngineStart, boolean keylessAccess) {
+            this.REMOTE_ENGINE_START = remoteEngineStart;
+            this.KEYLESS_ACCESS = keylessAccess;
         }
 
         public Key() {
@@ -223,6 +223,14 @@ public class Car {
 
         public boolean isKEYLESS_ACCESS() {
             return KEYLESS_ACCESS;
+        }
+
+        @Override
+        public String toString() {
+            return "Key(" +
+                    "remoteEngineStart=" + REMOTE_ENGINE_START +
+                    ", keylessAccess=" + KEYLESS_ACCESS+
+                    ')';
         }
     }
 }

@@ -32,6 +32,12 @@ public class Car {
     private static final String DEFAULT_TRANSMISSION = "auto";
 
     public Car(String brand, String model, int year, String country, String color, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres, Key key) {
+        setRegistrationNumber(registrationNumber); //для оптимизации, вместо условий поставил сеттеры
+        setTransmission(transmission);
+        setKey(key);
+        setColor(color);
+        setEngineVolume(engineVolume);
+
         if (brand.isBlank() || brand == null) {
             this.brand = DEFAULT_VALUE;
         } else {
@@ -41,16 +47,6 @@ public class Car {
             this.model = DEFAULT_VALUE;
         } else {
             this.model = model;
-        }
-        if (engineVolume >= DEFAULT_ENGINE_VALUE) {
-            this.engineVolume = engineVolume;
-        } else {
-            this.engineVolume = DEFAULT_ENGINE_VALUE;
-        }
-        if (color.isBlank() || color == null) {
-            this.color = DEFAULT_COLOUR;
-        } else {
-            this.color = color;
         }
         if (year >= 0) {
             this.year = year;
@@ -62,11 +58,6 @@ public class Car {
         } else {
             this.country = country;
         }
-        if (transmission.isBlank() || transmission == null) {
-            this.transmission = DEFAULT_TRANSMISSION;
-        } else {
-            this.transmission = transmission;
-        }
         if (bodyType.equals("Jeep") ||
                 bodyType.equals("Hatchback") || bodyType.equals("Sedan") || bodyType.equals("Coupe") ||
                 bodyType.equals("Wagon") || bodyType.equals("Van") || bodyType.equals("MUV/SUV") ||
@@ -77,18 +68,12 @@ public class Car {
         } else {
             this.bodyType = DEFAULT_VALUE;
         }
-        if (registrationNumber <= 0) {
-            this.registrationNumber = countOfCars;
-        } else {
-            this.registrationNumber = registrationNumber;
-        }
         if (numberOfSeats <= 0) {
             this.numberOfSeats = DEFAULT_VALUE_OF_SEATS;
         } else {
             this.numberOfSeats = numberOfSeats;
         }
         this.isSummerTyres = isSummerTyres;
-        this.key = Objects.requireNonNullElseGet(key, Key::new);
         countOfCars++;
     }
 
@@ -102,11 +87,7 @@ public class Car {
     }
 
     public void setKey(Key key) {
-        if (key == null) {
-            this.key = new Key();
-        } else {
-            this.key = key;
-        }
+        this.key = Objects.requireNonNullElseGet(key, Key::new);
     }
 
     public String getBrand() {

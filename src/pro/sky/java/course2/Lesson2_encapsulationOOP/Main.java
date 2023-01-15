@@ -1,6 +1,6 @@
 package pro.sky.java.course2.Lesson2_encapsulationOOP;
 
-import pro.sky.java.course2.Lesson3_inheritanceOOP.transport.Car;
+import pro.sky.java.course2.Lesson2_encapsulationOOP.transport.Car;
 
 public class Main {
 

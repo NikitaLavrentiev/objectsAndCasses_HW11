@@ -182,7 +182,7 @@ public class Car {
     public String toString() {
         return '\n' + brand + " " + model + ", production year " +year+", made in " + country + ", colour is " + color + ", engine volume " + engineVolume + " l."
                 + "\nnumbers of seats is " + numberOfSeats + ", body type " + bodyType + ", registration number " + registrationNumber + ", " + "\ntransmission "
-                + transmission + ", with " + isSummerTyres;
+                + transmission + ", with " + (isSummerTyres? "summer tyres": "winter tyres");
     }
 
     public static class Key {

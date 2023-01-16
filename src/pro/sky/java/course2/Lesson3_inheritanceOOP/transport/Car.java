@@ -43,9 +43,8 @@ public class Car extends Transport{
     }
 
     public Car(String brand, String model, int year, String country, String color, int speed) {
-        super(brand,model, year, country, color, speed);
+        this(brand, model, year, country, color, speed,0.0,"", "", 0, 0, false, new Key());
         countOfCars++;
-        //конструктор поменять на строчный
     }
 
     public Key getKey() {

@@ -84,7 +84,7 @@ public abstract class Transport {
     }
 
     @Override
-    public String toString() { //взможно это бесполезно
+    public String toString() { //возможно это бесполезно
         return '\n' + brand + " " + model + ", production year " + year + ", made in " + country + ", colour is " + color + ", speed is" + speed + ",";
     }
 

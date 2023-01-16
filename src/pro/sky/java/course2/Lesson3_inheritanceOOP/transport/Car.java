@@ -16,12 +16,13 @@ public class Car extends Transport{
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
     private static final String DEFAULT_TRANSMISSION = "auto";
 
-    public Car(Transport transport, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres, Key key) {
-        setRegistrationNumber(registrationNumber); //для оптимизации, вместо условий поставил сеттеры
+    //переделать конструкторы
+    public Car(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres, Key key) {
+        super(brand,model, year, country, color, speed);
+        setRegistrationNumber(registrationNumber);
         setTransmission(transmission);
         setKey(key);
         setEngineVolume(engineVolume);
-        transport = new Transport(); // чекнуть это на работоспособность, скорее всего запись должна быть другая
         if (bodyType.equals("Jeep") ||
                 bodyType.equals("Hatchback") || bodyType.equals("Sedan") || bodyType.equals("Coupe") ||
                 bodyType.equals("Wagon") || bodyType.equals("Van") || bodyType.equals("MUV/SUV") ||
@@ -41,9 +42,10 @@ public class Car extends Transport{
         countOfCars++;
     }
 
-    public Car(Transport transport, Key key) {
-        this(new Transport(), new Key());
+    public Car(String brand, String model, int year, String country, String color, int speed) {
+        super(brand,model, year, country, color, speed);
         countOfCars++;
+        //конструктор поменять на строчный
     }
 
     public Key getKey() {
@@ -116,10 +118,9 @@ public class Car extends Transport{
 
     @Override
     public String toString() {
-        return  "engine volume " + engineVolume + " l."
+        return  '\n' + getBrand() + " " + getModel() + ", production year " + getYear() + ", made in " + getCountry() + ", colour is " + getColor() + ", speed is" + getSpeed() + "," +"engine volume " + engineVolume + " l."
                 + "\nnumbers of seats is " + numberOfSeats + ", body type " + bodyType + ", registration number " + registrationNumber + ", " + "\ntransmission "
-                + transmission + ", with " + (isSummerTyres? "summer tyres": "winter tyres"); //добавить transport и key
-    }
+                + transmission + ", with " + (isSummerTyres? "summer tyres": "winter tyres") + key;}
 
     public static class Key {
         private final boolean REMOTE_ENGINE_START;

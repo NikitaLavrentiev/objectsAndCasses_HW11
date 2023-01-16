@@ -1,6 +1,6 @@
 package pro.sky.java.course2.Lesson3_inheritanceOOP.transport;
 
-public class Transport {
+public abstract class Transport {
     /*Создайте класс Transport, который содержит в себе следующие параметры:
 
 «Марка»,
@@ -14,9 +14,11 @@ public class Transport {
     private final int year;
     private final String country;
     private String color;
-    private static final String DEFAULT_VALUE = "default";
-    private static final String DEFAULT_COLOUR = "white";
-    public Transport (){
+    private int speed;
+    protected static final String DEFAULT_VALUE = "default";
+    protected static final String DEFAULT_COLOUR = "white";
+    protected static final Integer MAX_SPEED = 300;
+    public Transport (String brand, String model, int year, String country, String color, int speed){
         setColor(color);
         if (brand.isBlank() || brand == null) {
             this.brand = DEFAULT_VALUE;
@@ -38,6 +40,7 @@ public class Transport {
         } else {
             this.country = country;
         }
+       setSpeed(speed);
     }
     public String getBrand() {
         return brand;
@@ -65,9 +68,24 @@ public class Transport {
             this.color = color;
         }
     }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        if (speed<0) {
+            this.speed = 0;
+        } else if (speed > MAX_SPEED) {
+            this.speed = speed;
+        } else {
+            this.speed = speed;
+        }
+    }
+
     @Override
-    public String toString() {
-        return '\n' + brand + " " + model + ", production year " + year + ", made in " + country + ", colour is " + color + ",";
+    public String toString() { //взможно это бесполезно
+        return '\n' + brand + " " + model + ", production year " + year + ", made in " + country + ", colour is " + color + ", speed is" + speed + ",";
     }
 
 }

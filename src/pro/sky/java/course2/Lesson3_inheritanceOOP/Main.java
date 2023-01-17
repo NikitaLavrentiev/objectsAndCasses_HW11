@@ -1,5 +1,6 @@
 package pro.sky.java.course2.Lesson3_inheritanceOOP;
 
+import pro.sky.java.course2.Lesson3_inheritanceOOP.transport.Bus;
 import pro.sky.java.course2.Lesson3_inheritanceOOP.transport.Car;
 import pro.sky.java.course2.Lesson3_inheritanceOOP.transport.Transport;
 
@@ -21,5 +22,7 @@ public class Main {
         System.out.println(empty);
         System.out.println(empty.getBrand());
 
+        Bus MAZ = new Bus("MAZ", "103", 2022, "Russia", "yellow", 0);
+        System.out.println(MAZ.toString());
     }
 }

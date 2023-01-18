@@ -22,7 +22,7 @@ public class Main {
         System.out.println(empty);
         System.out.println(empty.getBrand());
 
-        Bus mAZ = new Bus("MAZ", "206015", 2022, "Belrussia", "yellow",0);
+        Bus mAZ = new Bus("MAZ", "206015", 2022, "Belarus", "yellow",0);
         System.out.println(mAZ.toString());
 
         Bus volgabus = new Bus("Volgabus", "4298", 2019, "Russia", "blue", 0);

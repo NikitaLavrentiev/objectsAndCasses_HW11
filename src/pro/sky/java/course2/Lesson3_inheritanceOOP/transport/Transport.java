@@ -1,14 +1,6 @@
 package pro.sky.java.course2.Lesson3_inheritanceOOP.transport;
 
 public abstract class Transport {
-    /*Создайте класс Transport, который содержит в себе следующие параметры:
-
-«Марка»,
-«Модель»,
-«Год выпуска»,
-«Страна производства»,
-«Цвет кузова»,
-«Максимальная скорость передвижения».*/
     private final String brand;
     private final String model;
     private final int year;
@@ -21,12 +13,12 @@ public abstract class Transport {
 
     public Transport(String brand, String model, int year, String country, String color, int speed) {
         setColor(color);
-        if (brand.isBlank() || brand == null) {
+        if (brand == null || brand.isBlank()) {
             this.brand = DEFAULT_VALUE;
         } else {
             this.brand = brand;
         }
-        if (model.isBlank() || model == null) {
+        if (model == null || model.isBlank()) {
             this.model = DEFAULT_VALUE;
         } else {
             this.model = model;
@@ -36,7 +28,7 @@ public abstract class Transport {
         } else {
             this.year = 2000;
         }
-        if (country.isBlank() || country == null) {
+        if (country == null || country.isBlank()) {
             this.country = DEFAULT_VALUE;
         } else {
             this.country = country;
@@ -65,7 +57,7 @@ public abstract class Transport {
     }
 
     public void setColor(String color) {
-        if (color.isBlank() || color == null) {
+        if (color == null || color.isBlank()) {
             this.color = DEFAULT_COLOUR;
         } else {
             this.color = color;

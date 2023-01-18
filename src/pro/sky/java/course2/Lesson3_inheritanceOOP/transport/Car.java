@@ -3,7 +3,7 @@ package pro.sky.java.course2.Lesson3_inheritanceOOP.transport;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Car extends Transport{
+public class Car extends Transport {
     private String transmission;
     private int registrationNumber;
     private final int numberOfSeats;
@@ -18,7 +18,7 @@ public class Car extends Transport{
 
     //переделать конструкторы
     public Car(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerTyres, Key key) {
-        super(brand,model, year, country, color, speed);
+        super(brand, model, year, country, color, speed);
         setRegistrationNumber(registrationNumber);
         setTransmission(transmission);
         setKey(key);
@@ -43,7 +43,7 @@ public class Car extends Transport{
     }
 
     public Car(String brand, String model, int year, String country, String color, int speed) {
-        this(brand, model, year, country, color, speed,0.0,"", "", 0, 0, false, new Key());
+        this(brand, model, year, country, color, speed, 0.0, "", "", 0, 0, false, new Key());
         countOfCars++;
     }
 
@@ -117,9 +117,10 @@ public class Car extends Transport{
 
     @Override
     public String toString() {
-        return  '\n' + getBrand() + " " + getModel() + ", production year " + getYear() + ", made in " + getCountry() + ", colour is " + getColor() + ", speed is" + getSpeed() + "," +"engine volume " + engineVolume + " l."
+        return '\n' + getBrand() + " " + getModel() + ", production year " + getYear() + ", made in " + getCountry() + ", colour is " + getColor() + ", speed is" + getSpeed() + "," + "engine volume " + engineVolume + " l."
                 + "\nnumbers of seats is " + numberOfSeats + ", body type " + bodyType + ", registration number " + registrationNumber + ", " + "\ntransmission "
-                + transmission + ", with " + (isSummerTyres? "summer tyres": "winter tyres") + key;}
+                + transmission + ", with " + (isSummerTyres ? "summer tyres" : "winter tyres") + key;
+    }
 
     public static class Key {
         private final boolean REMOTE_ENGINE_START;
@@ -146,7 +147,7 @@ public class Car extends Transport{
         public String toString() {
             return "Key(" +
                     "remoteEngineStart=" + REMOTE_ENGINE_START +
-                    ", keylessAccess=" + KEYLESS_ACCESS+
+                    ", keylessAccess=" + KEYLESS_ACCESS +
                     ')';
         }
     }

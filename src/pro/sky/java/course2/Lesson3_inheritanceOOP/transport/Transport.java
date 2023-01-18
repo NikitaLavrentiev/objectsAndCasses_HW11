@@ -18,7 +18,8 @@ public abstract class Transport {
     protected static final String DEFAULT_VALUE = "default";
     protected static final String DEFAULT_COLOUR = "white";
     protected static final Integer MAX_SPEED = 300;
-    public Transport (String brand, String model, int year, String country, String color, int speed){
+
+    public Transport(String brand, String model, int year, String country, String color, int speed) {
         setColor(color);
         if (brand.isBlank() || brand == null) {
             this.brand = DEFAULT_VALUE;
@@ -40,8 +41,9 @@ public abstract class Transport {
         } else {
             this.country = country;
         }
-       setSpeed(speed);
+        setSpeed(speed);
     }
+
     public String getBrand() {
         return brand;
     }
@@ -61,6 +63,7 @@ public abstract class Transport {
     public String getCountry() {
         return country;
     }
+
     public void setColor(String color) {
         if (color.isBlank() || color == null) {
             this.color = DEFAULT_COLOUR;
@@ -74,7 +77,7 @@ public abstract class Transport {
     }
 
     public void setSpeed(int speed) {
-        if (speed<0) {
+        if (speed < 0) {
             this.speed = 0;
         } else if (speed > MAX_SPEED) {
             this.speed = speed;

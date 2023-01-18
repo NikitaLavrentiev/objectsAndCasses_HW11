@@ -23,13 +23,13 @@ public class Car extends Transport {
         setTransmission(transmission);
         setKey(key);
         setEngineVolume(engineVolume);
-        if (bodyType.equals("Jeep") ||
+        if (bodyType == null || bodyType.isBlank()) {
+            this.bodyType = DEFAULT_VALUE;
+        } else if (bodyType.equals("Jeep") ||
                 bodyType.equals("Hatchback") || bodyType.equals("Sedan") || bodyType.equals("Coupe") ||
                 bodyType.equals("Wagon") || bodyType.equals("Van") || bodyType.equals("MUV/SUV") ||
                 bodyType.equals("Convertible")) {
             this.bodyType = bodyType;
-        } else if (bodyType.isBlank() || bodyType == null) {
-            this.bodyType = DEFAULT_VALUE;
         } else {
             this.bodyType = DEFAULT_VALUE;
         }
@@ -64,7 +64,7 @@ public class Car extends Transport {
     }
 
     public void setTransmission(String transmission) {
-        if (transmission.isBlank() || transmission == null) {
+        if (transmission == null || transmission.isBlank()) {
             this.transmission = DEFAULT_TRANSMISSION;
         } else {
             this.transmission = transmission;

@@ -1,6 +1,6 @@
 package pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport;
 
-public interface Сompeting {
+public interface Competing {
     void pitStop();
 
     void bestLapTime();

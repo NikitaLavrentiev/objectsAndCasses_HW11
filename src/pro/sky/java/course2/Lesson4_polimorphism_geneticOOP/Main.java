@@ -2,32 +2,46 @@ package pro.sky.java.course2.Lesson4_polimorphism_geneticOOP;
 
 import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Bus;
 import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Car;
+import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Truck;
+import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseB;
+import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseC;
+import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseD;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        Car ladaGranta = new Car("Lada", "Granta", 2015, "Russia", "yellow", 0, 1.7, "auto", "", 0, 5, false, new Car.Key(false, true));
-        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 2020, "Germany", "black", 0, 3.0, "auto", "", 0, 5, false, new Car.Key(true, false));
-        Car bMW = new Car("BMW", "Z8", 2021, "Germany", "black", 0, 3.0, "auto", "", 0, 5, true, new Car.Key(true, true));
-        Car kia = new Car("Kia", "Sportage 4th gen", 2018, "South Korea", "red", 0, 2.4, "auto", "", 0, 5, true, new Car.Key(false, false));
-        Car hyundaiAvante = new Car("Hyundai", "Avante", 2016, "South Korea", "orange", 0, 1.6, "auto", "", 0, 5, false, new Car.Key(false, true));
-        Car empty = new Car("", "", -1000, "", "", 0, 0, "auto", "", 0, 5, false, new Car.Key());
-
-        System.out.println(ladaGranta.toString());
-        ladaGranta.changeTiresForSeason();
-        System.out.println(ladaGranta);
+        Car ladaGranta = new Car("Lada", "Granta", 1.7, new LicenseB("Vin Drosel", true, 12));
+        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3.0, new LicenseB("Ashot Catapetyan", true, 18));
+        Car bMW = new Car("BMW", "Z8", 3.0, new LicenseB("Mazhoric"));
 
 
-        System.out.println(empty);
-        System.out.println(empty.getBrand());
+        Bus mAZ = new Bus("MAZ", "206015", 177.0, new LicenseD("Fabio Capelllo", true, 3));
+        Bus volgabus = new Bus("Volgabus", "4298", 150.0, new LicenseD("Tutta Qanti", true, 3));
+        Bus liAZ = new Bus("LiAZ", "4292 cursor", 210.0, new LicenseD("Pizhon"));
 
-        Bus mAZ = new Bus("MAZ", "206015", 2022, "Belarus", "yellow",0);
-        System.out.println(mAZ.toString());
+        Truck belaz = new Truck("Belaz", "75710", 3000.0, new LicenseC("Night Raidovich"));
+        Truck kAmAZ = new Truck("Kamaz", "6520", 400.0, new LicenseC("Igor Petrovich", true, 10));
+        Truck jAC = new Truck("JAC", "N120", 166.0, new LicenseC("Jan Jack", true, 7));
 
-        Bus volgabus = new Bus("Volgabus", "4298", 2019, "Russia", "blue", 0);
-        System.out.println(volgabus.toString());
+        ladaGranta.startMoving();
+        ladaGranta.maxSpeed();
+        ladaGranta.bestLapTime();
 
-        Bus liAZ = new Bus("LiAZ", "4292 cursor", 2021, "Russia", "white",0);
-        System.out.println(liAZ.toString());
+
+        mAZ.startMoving();
+        belaz.startMoving();
+        belaz.pitStop();
+
+        LicenseB mazhoric = new LicenseB("Mazhoric");
+        LicenseD pizhon = new LicenseD("Pizhon", true, 5);
+
+        belaz.willParticipate(belaz.getDriver());
+        ladaGranta.willParticipate(ladaGranta.getDriver());
+        liAZ.willParticipate(liAZ.getDriver());
+        kAmAZ.willParticipate(kAmAZ.getDriver());
+        volgabus.willParticipate(pizhon);
+        volgabus.willParticipate(volgabus.getDriver());
+
     }
 }

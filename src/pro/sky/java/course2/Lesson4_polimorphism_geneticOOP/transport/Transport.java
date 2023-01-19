@@ -2,17 +2,12 @@ package pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport;
 
 public abstract class Transport {
     protected static final String DEFAULT_VALUE = "default";
-    protected static final String DEFAULT_COLOUR = "white";
-    protected static final Integer MAX_SPEED = 300;
+    private static final double DEFAULT_ENGINE_VALUE = 1.5;
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int speed;
+    private double engineVolume;
 
-    public Transport(String brand, String model, int year, String country, String color, int speed) {
-        setColor(color);
+    public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isBlank()) {
             this.brand = DEFAULT_VALUE;
         } else {
@@ -23,19 +18,23 @@ public abstract class Transport {
         } else {
             this.model = model;
         }
-        if (year >= 0) {
-            this.year = year;
+        if (engineVolume >= DEFAULT_ENGINE_VALUE) {
+            this.engineVolume = engineVolume;
         } else {
-            this.year = 2000;
+            this.engineVolume = DEFAULT_ENGINE_VALUE;
         }
-        if (country == null || country.isBlank()) {
-            this.country = DEFAULT_VALUE;
+    }
+    public void setEngineVolume(double engineVolume) {
+        if (engineVolume >= DEFAULT_ENGINE_VALUE) {
+            this.engineVolume = engineVolume;
         } else {
-            this.country = country;
+            this.engineVolume = DEFAULT_ENGINE_VALUE;
         }
-        setSpeed(speed);
     }
 
+    public double getEngineVolume() {
+        return engineVolume;
+    }
     public String getBrand() {
         return brand;
     }
@@ -44,43 +43,21 @@ public abstract class Transport {
         return model;
     }
 
-    public String getColor() {
-        return color;
+    public void startMoving() {
+        System.out.println(getBrand() + " " + getModel() + " started moving on a route with all stops.");
+        System.out.println(getBrand() + " is moving right now.");
     }
 
-    public int getYear() {
-        return year;
+    public void endMoving() {
+        System.out.println(getBrand() + " " + getModel() + " slows down.");
+        System.out.println(getBrand() + " " + getModel() + "  has stopped.");
     }
 
-    public String getCountry() {
-        return country;
-    }
 
-    public void setColor(String color) {
-        if (color == null || color.isBlank()) {
-            this.color = DEFAULT_COLOUR;
-        } else {
-            this.color = color;
-        }
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        if (speed < 0) {
-            this.speed = 0;
-        } else if (speed > MAX_SPEED) {
-            this.speed = speed;
-        } else {
-            this.speed = speed;
-        }
-    }
 
     @Override
     public String toString() {
-        return '\n' + brand + " " + model + ", production year " + year + ", made in " + country + ", colour is " + color + ", speed is " + speed + ",";
+        return '\n' + brand + " " + model + ", engine volume " + engineVolume;
     }
 
 }

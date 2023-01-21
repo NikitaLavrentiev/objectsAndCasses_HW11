@@ -15,4 +15,18 @@ public class Truck extends Transport<LicenseC> {
     public String toString() {
         return "Truck " + super.toString();
     }
+    @Override
+    public void pitStop() {
+        System.out.println(this + " went to the pit-stop.");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println(this + " has best time lap.");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println(this + " has maximal speed... So much power");
+    }
 }

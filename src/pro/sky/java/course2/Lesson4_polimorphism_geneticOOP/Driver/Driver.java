@@ -23,10 +23,6 @@ public abstract class Driver {
         setExperienceYear(experienceYear);
     }
 
-    public Driver() {
-        this.fullName = null;
-    }
-
     public String getFullName() {
         return fullName;
     }

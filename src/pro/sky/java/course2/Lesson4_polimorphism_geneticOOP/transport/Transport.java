@@ -65,20 +65,7 @@ public abstract class Transport<D extends Driver> implements Competing {
         System.out.println(getBrand() + " " + getModel() + " slows down.");
         System.out.println(getBrand() + " " + getModel() + "  has stopped.");
     }
-    @Override
-    public void pitStop() {
-        System.out.println(this + " went to the pit-stop.");
-    }
 
-    @Override
-    public void bestLapTime() {
-        System.out.println(this + " has best time lap.");
-    }
-
-    @Override
-    public void maxSpeed() {
-        System.out.println(this + " has maximal speed. ");
-    }
     public void willParticipate(D driver) {
         if (driver.isHasDrivesLicense()) {
             System.out.println("Driver " + driver.getFullName() + " drives " + this + " and will participate in the race.");

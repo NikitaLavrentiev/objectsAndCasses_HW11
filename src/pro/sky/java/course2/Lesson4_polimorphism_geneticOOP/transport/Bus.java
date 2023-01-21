@@ -16,4 +16,18 @@ public class Bus extends Transport<LicenseD> {
     public String toString() {
         return "Bus " + super.toString();
     }
+    @Override
+    public void pitStop() {
+        System.out.println( "Bus went to the pit-stop, 30 seconds and go!");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Bus has best time lap.");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Bus has maximal speed. ");
+    }
 }

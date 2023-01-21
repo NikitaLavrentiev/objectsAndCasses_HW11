@@ -22,7 +22,7 @@ public class Main {
 
         Truck belaz = new Truck("Belaz", "75710", 3000.0, new LicenseC("Night Raidovich"));
         Truck kAmAZ = new Truck("Kamaz", "6520", 400.0, new LicenseC("Igor Petrovich", true, 10));
-        Truck jAC = new Truck("JAC", "N120", 166.0, new LicenseC("Jan Jack", true, 7));
+        Truck jAC = new Truck("JAC", "N120", 166.0);//, new LicenseC("Jan Jack", true, 7));
 
         ladaGranta.startMoving();
         ladaGranta.maxSpeed();

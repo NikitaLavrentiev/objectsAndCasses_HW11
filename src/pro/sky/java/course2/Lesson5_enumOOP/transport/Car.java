@@ -4,21 +4,61 @@ import pro.sky.java.course2.Lesson5_enumOOP.Driver.LicenseB;
 
 public class
 Car extends Transport<LicenseB> {
-    private BodyType[] bodyTypes = new BodyType[BodyType.values().length];
-    public Car(String brand, String model, double engineVolume, LicenseB driver) {
+    public enum BodyType {
+        SEDAN("Sedan"),
+        HATCHBACK("Hatchback"),
+        COUPE("Coupe"),
+        UNIVERSAL("Universal"),
+        SUV("SUV"),
+        CROSSOVER("Crossover"),
+        PICKUP("Pickup"),
+        VAN("Van"),
+        MINIVAN("Minivan");
+
+        final String category;
+
+        BodyType(String type) {
+            this.category = type;
+        }
+        public String getType() {
+            return category;
+        }
+
+        @Override
+        public String toString() {
+            return "BodyType is " + category;
+        }
+    }
+    private final BodyType bodyTypes;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Car(String brand, String model, double engineVolume, BodyType bodyTypes, LicenseB driver) {
         super(brand, model, engineVolume, driver);
-    }
-
-    public Car(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
-    }
-
-    public BodyType[] getBodyTypes() {
-        return bodyTypes;
-    }
-
-    public void setBodyTypes(BodyType[] bodyTypes) {
         this.bodyTypes = bodyTypes;
+    }
+
+    public Car(String brand, String model, double engineVolume, BodyType bodyTypes) {
+        super(brand, model, engineVolume);
+        this.bodyTypes = bodyTypes;
+    }
+
+    @Override
+    public void printType() {
+        if (getType() == null || getType().isBlank() || getType().isEmpty()) {
+            System.out.println("Vehicle data is not enough");
+        } else {
+            System.out.println("\n" +
+                    "Vehicle Type " + getType());
+            System.out.println(getType().toString());
+        }
     }
 
     @Override

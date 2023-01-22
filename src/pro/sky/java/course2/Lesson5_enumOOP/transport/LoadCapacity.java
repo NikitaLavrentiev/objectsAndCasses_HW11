@@ -27,11 +27,11 @@ public enum LoadCapacity {
     @Override
     public String toString() {
         if (MIN == 0f) {
-            return  " max load capacity " + MAX+ ", ";
+            return  " max load capacity " + MAX+ " tonn , ";
         } else if (MIN > 0f && MAX < Float.MAX_VALUE && MAX!=MIN) {
-            return " load capacity " + MIN+"-"+ MAX + ", ";
+            return " load capacity " + MIN+"-"+ MAX + " tonn , ";
         }else if (MAX == Float.MAX_VALUE || MAX == MIN) {
-            return "load capacity more " + MIN+ ", ";
+            return "load capacity more " + MIN+ " tonn , ";
         } else return "ALL BROKEN";
     }
 }

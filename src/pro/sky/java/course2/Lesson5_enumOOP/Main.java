@@ -1,11 +1,12 @@
-package pro.sky.java.course2.Lesson4_polimorphism_geneticOOP;
+package pro.sky.java.course2.Lesson5_enumOOP;
 
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Bus;
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Car;
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.transport.Truck;
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseB;
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseC;
-import pro.sky.java.course2.Lesson4_polimorphism_geneticOOP.Driver.LicenseD;
+import pro.sky.java.course2.Lesson5_enumOOP.Driver.LicenseB;
+import pro.sky.java.course2.Lesson5_enumOOP.Driver.LicenseC;
+import pro.sky.java.course2.Lesson5_enumOOP.Driver.LicenseD;
+import pro.sky.java.course2.Lesson5_enumOOP.transport.Bus;
+import pro.sky.java.course2.Lesson5_enumOOP.transport.Car;
+import pro.sky.java.course2.Lesson5_enumOOP.transport.LoadCapacity;
+import pro.sky.java.course2.Lesson5_enumOOP.transport.Truck;
 
 
 public class Main {
@@ -44,6 +45,5 @@ public class Main {
         volgabus.willParticipate(volgabus.getDriver());
 
         //возможно добавить конструктор дефолтного водителя который бы перезаписывал любой null, в случае если у машины водителя нет
-
     }
 }

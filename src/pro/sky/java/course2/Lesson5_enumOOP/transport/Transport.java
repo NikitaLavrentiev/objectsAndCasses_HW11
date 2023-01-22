@@ -3,6 +3,10 @@ package pro.sky.java.course2.Lesson5_enumOOP.transport;
 import pro.sky.java.course2.Lesson5_enumOOP.Driver.Driver;
 
 public abstract class Transport<D extends Driver> implements Competing {
+
+    /*В абстрактный класс Transport нужно добавить абстрактный метод printType, который выводит в консоль значение типа транспортного средства,
+    или если тип транспортного средства не указан, то строку вида "Данных по транспортному средству недостаточно".*/
+    //Быстрее всего через свич нужно будет сделать, но это может быть неудобно так что обдумай как лучше
     protected static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
     private final String brand;
@@ -10,7 +14,8 @@ public abstract class Transport<D extends Driver> implements Competing {
     private double engineVolume;
     private  D driver;
 
-    public Transport(String brand, String model, double engineVolume,D driver) {
+
+    public Transport(String brand, String model, double engineVolume, D driver) {
         if (brand == null || brand.isBlank()) {
             this.brand = DEFAULT_VALUE;
         } else {

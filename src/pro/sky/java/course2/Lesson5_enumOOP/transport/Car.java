@@ -4,12 +4,21 @@ import pro.sky.java.course2.Lesson5_enumOOP.Driver.LicenseB;
 
 public class
 Car extends Transport<LicenseB> {
+    private BodyType[] bodyTypes = new BodyType[BodyType.values().length];
     public Car(String brand, String model, double engineVolume, LicenseB driver) {
         super(brand, model, engineVolume, driver);
     }
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public BodyType[] getBodyTypes() {
+        return bodyTypes;
+    }
+
+    public void setBodyTypes(BodyType[] bodyTypes) {
+        this.bodyTypes = bodyTypes;
     }
 
     @Override

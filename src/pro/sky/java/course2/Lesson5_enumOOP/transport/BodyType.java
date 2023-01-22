@@ -16,6 +16,9 @@ public enum BodyType {
     BodyType(String type) {
         this.type = type;
     }
+    public String getBodyType() {
+        return type;
+    }
 
     @Override
     public String toString() {

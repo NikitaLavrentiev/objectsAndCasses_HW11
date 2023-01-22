@@ -1,6 +1,6 @@
 package pro.sky.java.course2.Lesson5_enumOOP.transport;
 
-public enum CountOfSits {
+public enum Size {
     EXTRA_SMALL(0, 10),
     SMALL(10, 25),
     LARGE(40, 50),
@@ -10,7 +10,7 @@ public enum CountOfSits {
     final int MAX;
 
 
-    CountOfSits(int min, int max) {
+    Size(int min, int max) {
         if (max > min || (max == min && min>0)) {
             if (min < 0) {
                 this.MIN = 0;

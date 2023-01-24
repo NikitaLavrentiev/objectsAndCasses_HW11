@@ -28,6 +28,11 @@ public class Bus extends Transport<LicenseD> {
     }
 
     @Override
+    protected void passDiagnostics() {
+        throw new RuntimeException("Bus is never break, try another transport");
+    }
+
+    @Override
     public void printType() {
         if (getType() == null || getType().isBlank() || getType().isEmpty()) {
             System.out.println("Vehicle data is not enough");

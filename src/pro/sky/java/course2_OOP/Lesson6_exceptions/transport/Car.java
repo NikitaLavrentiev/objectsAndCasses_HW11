@@ -15,7 +15,11 @@ Car extends Transport<LicenseB> {
         super(brand, model, engineVolume);
         this.bodyTypes = bodyTypes;
     }
-
+    @Override
+    public void passDiagnostics() {
+        System.out.println(getBrand() + getModel() + " start to check");
+        System.out.println("Diagnostic is finished");
+    }
     public String getType() {
         return type;
     }

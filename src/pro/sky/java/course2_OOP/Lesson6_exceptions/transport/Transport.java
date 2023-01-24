@@ -41,6 +41,7 @@ public abstract class Transport<D extends Driver> implements Competing {
             this.driver = driver;
         }
     }
+    protected abstract void passDiagnostics();
 
     public abstract void printType();
 

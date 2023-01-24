@@ -26,7 +26,11 @@ public class Truck extends Transport<LicenseC> {
     public LoadCapacity getLoadCapacity() {
         return loadCapacity;
     }
-
+    @Override
+    public void passDiagnostics() {
+        System.out.println(getBrand() + getModel() + " start to check");
+        System.out.println("Diagnostic is finished");
+    }
     @Override
     public void printType() {
         if (getType() == null || getType().isBlank() || getType().isEmpty()) {

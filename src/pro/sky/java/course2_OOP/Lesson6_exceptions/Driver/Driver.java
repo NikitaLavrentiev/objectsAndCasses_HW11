@@ -17,7 +17,7 @@ public abstract class Driver {
         this.experienceYear = BEGINNER;
     }
 
-    public Driver(String fullName, boolean hasDrivesLicense, double experienceYear) {
+    public Driver(String fullName, boolean hasDrivesLicense, double experienceYear) throws IllegalTypeOfLicense {
         this(fullName);
         this.hasDrivesLicense = hasDrivesLicense;
         setExperienceYear(experienceYear);
@@ -39,7 +39,7 @@ public abstract class Driver {
         return experienceYear;
     }
 
-    public void setExperienceYear(double experienceYear) {
+    public void setExperienceYear(double experienceYear) throws IllegalTypeOfLicense {
         if (isHasDrivesLicense()) {
             this.experienceYear = experienceYear;
         } else {

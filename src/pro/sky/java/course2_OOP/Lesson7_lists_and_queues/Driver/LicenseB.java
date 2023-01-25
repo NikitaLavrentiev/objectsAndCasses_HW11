@@ -5,7 +5,7 @@ public class LicenseB extends Driver {
         super(fullName);
     }
 
-    public LicenseB(String fullName, boolean hasDrivesLicense, double experienceYear) {
+    public LicenseB(String fullName, boolean hasDrivesLicense, double experienceYear) throws IllegalTypeOfLicense {
         super(fullName, hasDrivesLicense, experienceYear);
     }
 

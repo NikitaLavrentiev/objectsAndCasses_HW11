@@ -1,12 +1,11 @@
 package pro.sky.java.course2_OOP.Lesson7_lists_and_queues;
 
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.IllegalTypeOfLicense;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.LicenseB;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.LicenseC;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.LicenseD;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.Bus;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.Car;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.Truck;
+import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.*;
+import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Mechanic.Mechanic;
+import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -44,8 +43,7 @@ public class Main {
         volgabus.willParticipate(pizhon);
         volgabus.willParticipate(volgabus.getDriver());*/
 
-
-        try { //нужно как-то облагородить, для того чтобы не прописывать каждый объект
+    /*    try { //нужно как-то облагородить, для того чтобы не прописывать каждый объект
             ladaGranta.passDiagnostics();
             bMW.passDiagnostics();
             mAZ.passDiagnostics();
@@ -54,7 +52,36 @@ public class Main {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("Diagnostic is complete.");
-        }
+        }*/
+
+
+        List<Transport<?>> forRace = List.of(ladaGranta, audiA8, bMW, mAZ, volgabus, liAZ, belaz, kAmAZ, jAC); //список машин для гонок
+        List<Driver> driverList = new ArrayList<>();
+        for (Transport<?> car : forRace) {
+            driverList.add(car.getDriver());
+        } // идёт по списку и добавляет в список водителей, водителей из конструктора транспорта
+
+        /*System.out.println(driverList);
+*/
+        Mechanic<Transport<?>> murad = new Mechanic<>("Murad", "Shinkin");
+        Mechanic<Transport<?>> michalych = new Mechanic<>("Michalych");
+        Mechanic<Transport<?>> semenych = new Mechanic<>("Semenych", "Yedrion Baton");
+
+       /* murad.fixTheCar(ladaGranta, audiA8, bMW);
+        michalych.performMaintenance(liAZ);
+        belaz.addMechanics(murad, michalych, semenych);
+        belaz.printCarTeamInfo();*/
+
+        ServiceStation<Transport<?>> serviceStation = new ServiceStation<>();
+        serviceStation.addTransport(forRace);
+
+        System.out.println(serviceStation.gettQueue());
+        serviceStation.doServiceInspection();
+        System.out.println(serviceStation.gettQueue());
+
+
+
+       /* serviceStation.doServiceInspection();*/
     }
 
 }

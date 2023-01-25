@@ -2,6 +2,11 @@ package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport;
 
 import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.Driver;
 import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.IllegalTypeOfLicense;
+import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Mechanic.Mechanic;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class Transport<D extends Driver> implements Competing {
     protected static final String DEFAULT_VALUE = "default";
@@ -10,6 +15,9 @@ public abstract class Transport<D extends Driver> implements Competing {
     private final String model;
     private double engineVolume;
     private D driver;
+    private List<Mechanic<?>> mechanicsList = new ArrayList<>();
+
+
 
 
     public Transport(String brand, String model, double engineVolume, D driver) {
@@ -25,6 +33,8 @@ public abstract class Transport<D extends Driver> implements Competing {
         }
         setEngineVolume(engineVolume);
         this.driver = driver;
+
+
     }
 
     public Transport(String brand, String model, double engineVolume) {
@@ -42,6 +52,8 @@ public abstract class Transport<D extends Driver> implements Competing {
             this.driver = driver;
         }
     }
+
+
     protected abstract void passDiagnostics() throws IllegalTypeOfLicense;
 
     public abstract void printType();
@@ -84,6 +96,18 @@ public abstract class Transport<D extends Driver> implements Competing {
         } else {
             System.out.println("Driver " + driver.getFullName() + " excluded.");
         }
+    }
+
+    public List<Mechanic<?>> getMechanicsList() {
+        return mechanicsList;
+    }
+
+    public void addMechanics(Mechanic<?>... mechanics) {
+        mechanicsList.addAll(Arrays.asList(mechanics));
+    }
+
+    public void printCarTeamInfo() {
+        System.out.println("Transport is: " + getBrand() + " " + getModel() + " and its driver - " + getDriver().getFullName() + ". Mechanics team: " + getMechanicsList());
     }
 
     @Override

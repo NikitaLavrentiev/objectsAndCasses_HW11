@@ -22,7 +22,6 @@ Car extends Transport<LicenseB> {
             throw new IllegalTypeOfLicense("License from " + getDriver().getFullName() + "not found.");
         } else {
             System.out.println(getBrand() + getModel() + " start diagnostics.");
-            System.out.println(getBrand() + getModel() + " completed diagnostics.");
         }
     }
     public String getType() {

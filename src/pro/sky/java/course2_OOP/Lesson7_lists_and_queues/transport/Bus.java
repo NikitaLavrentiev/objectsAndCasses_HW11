@@ -2,9 +2,13 @@ package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport;
 
 import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.LicenseD;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bus extends Transport<LicenseD> {
     private final Size size;
     private String type;
+
     public Bus(String brand, String model, double engineVolume, Size size, LicenseD driver) {
         super(brand, model, engineVolume, driver);
         this.size = size;
@@ -13,6 +17,7 @@ public class Bus extends Transport<LicenseD> {
     public Bus(String brand, String model, double engineVolume, Size size) {
         super(brand, model, engineVolume);
         this.size = size;
+
     }
 
     public Size getSize() {

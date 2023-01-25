@@ -33,7 +33,6 @@ public class Truck extends Transport<LicenseC> {
             throw new IllegalTypeOfLicense("License from " + getDriver().getFullName() + "not found.");
         } else {
             System.out.println(getBrand() + getModel() + " start diagnostics.");
-            System.out.println(getBrand() + getModel() + " completed diagnostics.");
         }
     }
     @Override

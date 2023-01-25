@@ -1,6 +1,7 @@
 package pro.sky.java.course2_OOP.Lesson6_exceptions.transport;
 
 import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.Driver;
+import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.IllegalTypeOfLicense;
 
 public abstract class Transport<D extends Driver> implements Competing {
     protected static final String DEFAULT_VALUE = "default";
@@ -41,7 +42,7 @@ public abstract class Transport<D extends Driver> implements Competing {
             this.driver = driver;
         }
     }
-    protected abstract void passDiagnostics();
+    protected abstract void passDiagnostics() throws IllegalTypeOfLicense;
 
     public abstract void printType();
 

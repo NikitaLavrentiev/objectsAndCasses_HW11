@@ -1,5 +1,6 @@
 package pro.sky.java.course2_OOP.Lesson6_exceptions.transport;
 
+import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.IllegalTypeOfLicense;
 import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.LicenseB;
 
 public class
@@ -16,9 +17,13 @@ Car extends Transport<LicenseB> {
         this.bodyTypes = bodyTypes;
     }
     @Override
-    public void passDiagnostics() {
-        System.out.println(getBrand() + getModel() + " start to check");
-        System.out.println("Diagnostic is finished");
+    public void passDiagnostics() throws IllegalTypeOfLicense {
+        if (!getDriver().isHasDrivesLicense()) {
+            throw new IllegalTypeOfLicense("License from " + getDriver().getFullName() + "not found.");
+        } else {
+            System.out.println(getBrand() + getModel() + " start diagnostics.");
+            System.out.println(getBrand() + getModel() + " completed diagnostics.");
+        }
     }
     public String getType() {
         return type;

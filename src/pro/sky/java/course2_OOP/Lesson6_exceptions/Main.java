@@ -1,16 +1,15 @@
 package pro.sky.java.course2_OOP.Lesson6_exceptions;
 
-import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.LicenseB;
-import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.LicenseC;
-import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.LicenseD;
+import pro.sky.java.course2_OOP.Lesson6_exceptions.Driver.*;
 import pro.sky.java.course2_OOP.Lesson6_exceptions.transport.Bus;
 import pro.sky.java.course2_OOP.Lesson6_exceptions.transport.Car;
+import pro.sky.java.course2_OOP.Lesson6_exceptions.transport.Transport;
 import pro.sky.java.course2_OOP.Lesson6_exceptions.transport.Truck;
 
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalTypeOfLicense {
         Car ladaGranta = new Car("Lada", "Granta", 1.7, Car.BodyType.SEDAN, new LicenseB("Vin Drosel", true, 12));
         Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3.0, Car.BodyType.SEDAN, new LicenseB("Ashot Catapetyan", true, 18));
         Car bMW = new Car("BMW", "Z8", 3.0, Car.BodyType.SEDAN, new LicenseB("Mazhoric"));
@@ -24,7 +23,7 @@ public class Main {
         Truck kAmAZ = new Truck("Kamaz", "6520", 400.0, Truck.LoadCapacity.N2, new LicenseC("Igor Petrovich", true, 10));
         Truck jAC = new Truck("JAC", "N120", 166.0, Truck.LoadCapacity.N1, new LicenseC("Jan Jack", true, 7));
 
-        ladaGranta.startMoving();
+        /*ladaGranta.startMoving();
         ladaGranta.maxSpeed();
         ladaGranta.bestLapTime();
 
@@ -41,7 +40,19 @@ public class Main {
         liAZ.willParticipate(liAZ.getDriver());
         kAmAZ.willParticipate(kAmAZ.getDriver());
         volgabus.willParticipate(pizhon);
-        volgabus.willParticipate(volgabus.getDriver());
+        volgabus.willParticipate(volgabus.getDriver());*/
 
+
+        try { //нужно как-то облагородить, для того чтобы не прописывать каждый объект
+            ladaGranta.passDiagnostics();
+            bMW.passDiagnostics();
+            mAZ.passDiagnostics();
+            belaz.passDiagnostics();
+        } catch (IllegalTypeOfLicense | UnsupportedOperationException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Diagnostic is complete.");
+        }
     }
+
 }

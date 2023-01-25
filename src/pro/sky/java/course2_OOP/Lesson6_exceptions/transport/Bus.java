@@ -28,8 +28,8 @@ public class Bus extends Transport<LicenseD> {
     }
 
     @Override
-    protected void passDiagnostics() {
-        throw new RuntimeException("Bus is never break, try another transport");
+    public void passDiagnostics() throws UnsupportedOperationException {
+        throw new UnsupportedOperationException ("Bus is never break, try another transport");
     }
 
     @Override

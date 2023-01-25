@@ -43,5 +43,7 @@ public class Main {
         volgabus.willParticipate(pizhon);
         volgabus.willParticipate(volgabus.getDriver());
 
+        //возможно добавить конструктор дефолтного водителя который бы перезаписывал любой null, в случае если у машины водителя нет
+
     }
 }

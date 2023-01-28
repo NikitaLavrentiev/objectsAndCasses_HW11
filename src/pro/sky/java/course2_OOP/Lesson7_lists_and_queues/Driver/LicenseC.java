@@ -1,4 +1,4 @@
-package pro.sky.java.course2_OOP.Lesson6_exceptions.Driver;
+package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver;
 
 public class LicenseC extends Driver {
     public LicenseC(String fullName) {

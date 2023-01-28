@@ -51,8 +51,9 @@ public class Mechanic<T extends Transport> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Mechanic<?> mechanic)) return false;
-        return name.equals(mechanic.name) && Objects.equals(company, mechanic.company);
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return name.equals(mechanic.name) && company.equals(mechanic.company);
     }
 
     @Override

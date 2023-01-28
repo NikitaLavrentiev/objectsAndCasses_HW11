@@ -83,7 +83,7 @@ public class Main {
 
         System.out.println(serviceStation.gettQueue());
         serviceStation.doServiceInspection();
-        System.out.println(serviceStation.gettQueue());*/
+        System.out.println(serviceStkation.gettQueue());*/
 
         /* serviceStation.doServiceInspection();*/
 

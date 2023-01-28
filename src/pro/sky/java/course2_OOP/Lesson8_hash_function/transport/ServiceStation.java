@@ -3,7 +3,10 @@ package pro.sky.java.course2_OOP.Lesson8_hash_function.transport;
 
 import pro.sky.java.course2_OOP.Lesson8_hash_function.Driver.IllegalTypeOfLicense;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class ServiceStation<T extends Transport<?>> {
     private final Queue<T> tQueue = new LinkedList<>();
@@ -42,15 +45,4 @@ public class ServiceStation<T extends Transport<?>> {
         return tQueue;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ServiceStation<?> that)) return false;
-        return Objects.equals(tQueue, that.tQueue) && Objects.equals(x, that.x);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tQueue, x);
-    }
 }

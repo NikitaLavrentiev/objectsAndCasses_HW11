@@ -1,12 +1,10 @@
-package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport;
+package pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.transport;
 
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.Driver;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Driver.IllegalTypeOfLicense;
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Mechanic.Mechanic;
+import pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Driver.Driver;
+import pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Driver.IllegalTypeOfLicense;
+import pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Mechanic.Mechanic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport<D extends Driver> implements Competing {
     protected static final String DEFAULT_VALUE = "default";
@@ -18,6 +16,7 @@ public abstract class Transport<D extends Driver> implements Competing {
 
     private List<Mechanic<?>> mechanicsList = new ArrayList<>();
     private final List<Transport<?>> l = new ArrayList<>();
+    private final Map<Transport<?>, Mechanic<?>> carsAndMechanicList = new HashMap<>();
 
 
 
@@ -103,8 +102,13 @@ public abstract class Transport<D extends Driver> implements Competing {
         return mechanicsList;
     }
 
-    public void addMechanics(Mechanic<?>... mechanics) {
-        mechanicsList.addAll(Arrays.asList(mechanics));
+    public void addMechanics(Transport<?> transport, Mechanic<?> mechanic) {
+        if (transport == null || carsAndMechanicList.containsKey(transport)) {
+            carsAndMechanicList.put(transport, mechanic);
+            System.out.println("For " + transport.getBrand() + " " + transport.getModel() + " set new mechanic. Mechanic's name is " + mechanic.getName() + " and company is " + mechanic.getCompany() + ".");
+        } else {
+            System.out.println("Transport is not found.");
+        }
     }
 
     public void printCarTeamInfo() {

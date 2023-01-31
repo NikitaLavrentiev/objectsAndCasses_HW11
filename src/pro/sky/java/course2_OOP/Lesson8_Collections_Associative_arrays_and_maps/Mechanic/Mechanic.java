@@ -1,7 +1,7 @@
-package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Mechanic;
+package pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Mechanic;
 
 
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.Transport;
+import pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.transport.Transport;
 
 import java.util.Arrays;
 import java.util.Objects;

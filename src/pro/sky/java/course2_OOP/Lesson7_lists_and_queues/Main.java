@@ -80,8 +80,7 @@ public class Main {
         System.out.println(serviceStation.gettQueue());
 
 
-
-       /* serviceStation.doServiceInspection();*/
+        /* serviceStation.doServiceInspection();*/
     }
 
 }

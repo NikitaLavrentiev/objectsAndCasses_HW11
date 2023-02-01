@@ -1,5 +1,7 @@
 package pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Driver;
 
+import java.util.Objects;
+
 public abstract class Driver {
 
     protected final double BEGINNER = 0.0;
@@ -39,7 +41,7 @@ public abstract class Driver {
         return experienceYear;
     }
 
-    public void setExperienceYear(double experienceYear) throws IllegalTypeOfLicense {
+    public void setExperienceYear(double experienceYear) {
         if (isHasDrivesLicense()) {
             this.experienceYear = experienceYear;
         } else {
@@ -78,5 +80,17 @@ public abstract class Driver {
                 ", hasDrivesLicense=" + hasDrivesLicense +
                 ", experienceYear=" + experienceYear +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Driver driver)) return false;
+        return hasDrivesLicense == driver.hasDrivesLicense && Double.compare(driver.experienceYear, experienceYear) == 0 && fullName.equals(driver.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, hasDrivesLicense, experienceYear);
     }
 }

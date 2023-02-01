@@ -14,8 +14,7 @@ public abstract class Transport<D extends Driver> implements Competing {
     private double engineVolume;
     private D driver;
 
-    private List<Mechanic<?>> mechanicsList = new ArrayList<>();
-    private final List<Transport<?>> l = new ArrayList<>();
+    private final List<Mechanic<?>> mechanicsList = new ArrayList<>();
     private final Map<Transport<?>, Mechanic<?>> carsAndMechanicList = new HashMap<>();
 
 
@@ -34,7 +33,6 @@ public abstract class Transport<D extends Driver> implements Competing {
         }
         setEngineVolume(engineVolume);
         this.driver = driver;
-        l.add(this);
     }
 
     public Transport(String brand, String model, double engineVolume) {
@@ -45,7 +43,7 @@ public abstract class Transport<D extends Driver> implements Competing {
         return driver;
     }
 
-    public void setDriver(D Driver) {
+    public void setDriver(D driver) {
         if (driver == null) {
             throw new RuntimeException("There is no driver " + this + " is empty.");
         } else {
@@ -63,11 +61,7 @@ public abstract class Transport<D extends Driver> implements Competing {
     }
 
     public void setEngineVolume(double engineVolume) {
-        if (engineVolume >= DEFAULT_ENGINE_VALUE) {
-            this.engineVolume = engineVolume;
-        } else {
-            this.engineVolume = DEFAULT_ENGINE_VALUE;
-        }
+        this.engineVolume = Math.max(engineVolume, DEFAULT_ENGINE_VALUE);
     }
 
     public String getBrand() {
@@ -120,5 +114,15 @@ public abstract class Transport<D extends Driver> implements Competing {
         return brand + " " + model + ", engine volume " + engineVolume;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport<?> transport)) return false;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, driver);
+    }
 }

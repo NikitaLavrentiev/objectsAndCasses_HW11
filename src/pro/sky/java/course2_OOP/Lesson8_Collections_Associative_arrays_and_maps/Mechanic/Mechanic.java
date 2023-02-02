@@ -1,7 +1,7 @@
-package pro.sky.java.course2_OOP.Lesson7_lists_and_queues.Mechanic;
+package pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.Mechanic;
 
 
-import pro.sky.java.course2_OOP.Lesson7_lists_and_queues.transport.Transport;
+import pro.sky.java.course2_OOP.Lesson8_Collections_Associative_arrays_and_maps.transport.Transport;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -38,23 +38,23 @@ public class Mechanic<T extends Transport> {
         }
 
         @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Mechanic<?> mechanic = (Mechanic<?>) o;
-            return Objects.equals(name, mechanic.name) && Objects.equals(company, mechanic.company);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(name, company);
-        }
-
-        @Override
         public String toString() {
             return "Mechanic" +
                     "name'" + name + '\'' +
                     ", company " + company + '\'' +
                     " ";
         }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return Objects.equals(name, mechanic.name) && Objects.equals(company, mechanic.company);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, company);
+    }
+}
